@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Testnet - The Official Testnet of the Dot Protocol</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="/assets/logo.png" alt="Dot Protocol Logo" class="logo">
+                <h1>Chennai Testnet - The Official Testnet of the Dot Protocol</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search by Address / Txn Hash / Block / Token" class="search-bar">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="overview">
+            <div class="stat-box">
+                <h3>$3DOT PRICE</h3>
+                <p>$1.00 @ 1.000000 $3DOT <span class="change">(0.00%)</span></p>
+            </div>
+            <div class="stat-box">
+                <h3>TRANSACTIONS</h3>
+                <p><%= totalTransactions %> (<%= tps %> TPS)</p>
+            </div>
+            <div class="stat-box">
+                <h3>LAST FINALIZED BLOCK</h3>
+                <p><%= latestBlock.number %></p>
+            </div>
+            <div class="stat-box">
+                <h3>AVERAGE BLOCK TIME</h3>
+                <p><%= averageBlockTime %> s</p>
+            </div>
+        </section>
+
+        <section class="latest-blocks">
+            <h2>Latest Blocks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Block</th>
+                        <th>Age</th>
+                        <th>Txn</th>
+                        <th>Gas Used</th>
+                        <th>Gas Limit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% latestBlocks.forEach(block => { %>
+                        <tr>
+                            <td><%= block.number %></td>
+                            <td><%= getTimeDifference(block.timestamp) %></td>
+                            <td><%= block.transactions.length %></td>
+                            <td><%= block.gasUsed %></td>
+                            <td><%= block.gasLimit %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <div class="view-all-button">
+                <a href="/blocks" class="btn">View all Blocks</a>
+            </div>
+        </section>
+
+        <section class="latest-transactions">
+            <h2>Latest Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Txn Hash</th>
+                        <th>Method</th>
+                        <th>Block</th>
+                        <th>Age</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Value</th>
+                        <th>Txn Fee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% latestTransactions.forEach(tx => { %>
+                        <tr>
+                            <td><%= tx.hash.substring(0, 16) %>...</td>
+                            <td>Transfer</td>
+                            <td><%= tx.blockNumber %></td>
+                            <td><%= getTimeDifference(tx.timestamp) %></td>
+                            <td><%= tx.from.substring(0, 16) %>...</td>
+                            <td><%= tx.to.substring(0, 16) %>...</td>
+                            <td><%= web3.utils.fromWei(tx.value.toString(), 'ether') %> DOT</td>
+                            <td><%= calculateTxnFee(tx) %> DOT</td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <div class="view-all-button">
+                <a href="/transactions" class="btn">View all Transactions</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 | Chennai Testnet | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

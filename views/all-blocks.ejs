@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blocks - Chennai Testnet</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- ... header content (same as index.ejs) ... -->
+    </header>
+    
+    <main class="container">
+        <h2>All Blocks</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Block</th>
+                    <th>Age</th>
+                    <th>Txn</th>
+                    <th>Gas Used</th>
+                    <th>Gas Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% blocks.forEach(block => { %>
+                    <tr>
+                        <td><%= block.number %></td>
+                        <td><%= getTimeDifference(block.timestamp) %></td>
+                        <td><%= block.transactions.length %></td>
+                        <td><%= block.gasUsed %></td>
+                        <td><%= block.gasLimit %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <!-- ... footer content (same as index.ejs) ... -->
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

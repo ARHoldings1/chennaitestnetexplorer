@@ -1,0 +1,210 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #FFD700;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background-color: #111;
+    box-shadow: 0 2px 4px rgba(255,215,0,0.1);
+    padding: 1rem 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+h1 {
+    margin-left: 1rem;
+    color: #FFD700;
+    font-size: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    width: 100%;
+}
+
+.search-bar {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #FFD700;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    background-color: #222;
+    color: #FFD700;
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #FFD700;
+    border: 1px solid #FFD700;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-button i {
+    color: #000000;
+}
+
+main {
+    padding: 2rem 0;
+}
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+}
+
+.stat-box {
+    background-color: #111;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255,215,0,0.1);
+    flex: 1;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease;
+    min-width: 0; /* This allows the flex items to shrink below their minimum content size */
+}
+
+.stat-box:first-child {
+    margin-left: 0;
+}
+
+.stat-box:last-child {
+    margin-right: 0;
+}
+
+.stat-box h3 {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #FFD700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stat-box p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFD700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.change {
+    color: #4CAF50;
+    font-size: 0.9rem;
+}
+
+h2 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #111;
+    box-shadow: 0 2px 4px rgba(255,215,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: #222;
+    font-weight: bold;
+    color: #FFD700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #222;
+}
+
+footer {
+    background-color: #111;
+    color: #FFD700;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(255,215,0,0.1);
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .stat-box {
+        flex-basis: 48%;
+        margin: 0.5rem 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    h1 {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-box {
+        flex-basis: 100%;
+    }
+}
+
+.view-all-button {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #FFD700;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FFC000;
+}
